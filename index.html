@@ -114,8 +114,8 @@
 
         .tech-tag {
             display: inline-block;
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            color: #1e40af;
+            background: linear-gradient(135deg, #e3f0ff, #f8fbff);
+            color: #3761a8;
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 12px;
@@ -123,14 +123,14 @@
             margin: 2px;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 1px solid #bfdbfe;
+            border: 1px solid #b3d0f7;
         }
 
         .tech-tag:hover {
-            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            background: linear-gradient(90deg, #5fa8e6 0%, #3761a8 100%);
             color: #ffffff;
             transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 12px rgba(95, 168, 230, 0.3);
         }
 
         .timeline-item {
@@ -431,6 +431,7 @@
                     <a href="#about" class="nav-link">About</a>
                     <a href="#education" class="nav-link">Education</a>
                     <a href="#research" class="nav-link">Research</a>
+                    <a href="#projects" class="nav-link">Projects</a>
                     <a href="#publications" class="nav-link">Publications</a>
                     <a href="#contact" class="nav-link">Contact</a>
                 </div>
@@ -445,6 +446,7 @@
                 <a href="#about" class="nav-link block text-center">About</a>
                 <a href="#education" class="nav-link block text-center">Education</a>
                 <a href="#research" class="nav-link block text-center">Research</a>
+                <a href="#projects" class="nav-link block text-center">Projects</a>
                 <a href="#publications" class="nav-link block text-center">Publications</a>
                 <a href="#contact" class="nav-link block text-center">Contact</a>
             </div>
@@ -466,6 +468,7 @@
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#research" class="btn btn-primary">Research</a>
+            <a href="#projects" class="btn btn-secondary">Projects</a>
             <a href="#publications" class="btn btn-secondary">Publications</a>
             <a href="mailto:mparikshit@iisc.ac.in" class="btn btn-download">Contact Me</a>
         </div>
@@ -570,6 +573,33 @@
                     <li><span class="font-semibold" style="color:#495057;">Uncertainty Quantification:</span> Bayesian methods, Bayesian PINNs, and probabilistic deep learning for quantifying uncertainty in scientific models.</li>
                     <li><span class="font-semibold" style="color:#495057;">Stochastic PDEs:</span> Data-driven and physics-based approaches for solving PDEs under uncertainty.</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section" style="scroll-margin-top: 90px;">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-semibold section-title mb-12 text-center">Projects</h2>
+            <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Data Science Project -->
+                <div class="card">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Data Science Portfolio</h3>
+                    <p class="text-gray-600 mb-4">
+                        A comprehensive data science portfolio showcasing various machine learning projects, 
+                        statistical analysis, and data visualization techniques applied to real-world problems.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Visualization</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="https://parikshit-26.github.io/parikshit.github.io/" class="btn btn-primary" target="_blank">View Project</a>
+                        <a href="https://github.com/Parikshit-26/Data_Science_Project.git" class="btn btn-secondary" target="_blank">GitHub</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
