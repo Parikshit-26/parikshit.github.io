@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parikshit Mahajan - Academic Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(120deg, #e3f0ff 0%, #f8fbff 100%);
+            color: #22304a;
+            line-height: 1.7;
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(120deg, #f8fbff 60%, #e3f0ff 100%);
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(8px);
+            background: rgba(236, 245, 255, 0.95);
+            border-bottom: 1px solid #b3d0f7;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            color: #3761a8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            background: linear-gradient(90deg, #5fa8e6 0%, #3761a8 100%);
+        }
+
+        .nav-link.active {
+            color: #fff;
+            background: linear-gradient(90deg, #3761a8 0%, #5fa8e6 100%);
+            box-shadow: 0 2px 8px rgba(95, 168, 230, 0.12);
+        }
+
+        .card {
+            background: #fafdff;
+            border: 1px solid #b3d0f7;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(95, 168, 230, 0.07);
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(95, 168, 230, 0.13);
+            transform: translateY(-2px);
+            border-color: #3761a8;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #5fa8e6 0%, #3761a8 100%);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(95, 168, 230, 0.10);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #3761a8 0%, #5fa8e6 100%);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(95, 168, 230, 0.18);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: #fff;
+            color: #3761a8;
+            border: 2px solid #5fa8e6;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(90deg, #5fa8e6 0%, #3761a8 100%);
+            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(95, 168, 230, 0.13);
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            color: #1e40af;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #bfdbfe;
+        }
+
+        .tech-tag:hover {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            color: #ffffff;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: linear-gradient(to bottom, #3b82f6, #e5e7eb);
+        }
+
+        .chat-container {
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            color: white;
+            align-self: flex-end;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .ai-message {
+            background-color: #f8fafc;
+            color: #1f2937;
+            border: 1px solid #e5e7eb;
+            align-self: flex-start;
+        }
+
+        .chat-input-container {
+            padding: 1rem;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .loading-dots {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+        }
+
+        .loading-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            animation: loading 1.4s ease-in-out infinite;
+        }
+
+        .loading-dot:nth-child(1) { animation-delay: 0s; }
+        .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes loading {
+            0%, 60%, 100% { transform: scale(1); opacity: 0.5; }
+            30% { transform: scale(1.2); opacity: 1; }
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .project-item {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+        }
+
+        .project-item h4 {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-item p {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .usage-context {
+            color: #374151;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .hero-title {
+            background: linear-gradient(90deg, #3761a8 0%, #5fa8e6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Merriweather', serif;
+        }
+
+        .hero-subtitle {
+            color: #3761a8;
+            font-weight: 600;
+            font-family: 'Merriweather', serif;
+        }
+
+        .section-title {
+            color: #3761a8;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #5fa8e6 0%, #3761a8 100%);
+            border-radius: 2px;
+        }
+
+        .accent-bg {
+            background: linear-gradient(120deg, #e3f0ff 0%, #f8fbff 100%);
+        }
+
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+        }
+
+        .project-card:hover {
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.15);
+            transform: translateY(-6px);
+            border-color: #3b82f6;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 1px solid #bfdbfe;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .contact-card:hover h3,
+        .contact-card:hover a {
+            color: #ffffff !important;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 4rem 1rem;
+            }
+            
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
+            
+            .message {
+                max-width: 85%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-40 nav-blur">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold hero-title">
+                    Parikshit Mahajan
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#research" class="nav-link">Research</a>
+                    <a href="#publications" class="nav-link">Publications</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-gray-500 hover:text-blue-500">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#home" class="nav-link block text-center">Home</a>
+                <a href="#about" class="nav-link block text-center">About</a>
+                <a href="#education" class="nav-link block text-center">Education</a>
+                <a href="#research" class="nav-link block text-center">Research</a>
+                <a href="#publications" class="nav-link block text-center">Publications</a>
+                <a href="#contact" class="nav-link block text-center">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+     <!-- Home Section -->
+<section id="home" class="section">
+    <div class="container mx-auto text-center max-w-3xl">
+        <h1 class="text-5xl md:text-6xl font-bold hero-title mb-4">
+            Parikshit Mahajan
+        </h1>
+        <p class="text-xl md:text-2xl hero-subtitle mb-8">
+            MTech (Research) Student, <a href="https://www.iisc.ac.in/" target="_blank" class="text-blue-700 hover:underline">Indian Institute of Science (IISc), Bangalore</a>
+        </p>
+        <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-10 leading-relaxed">
+            I am a researcher in the Department of Computational and Data Sciences at <a href="https://www.iisc.ac.in/" target="_blank" class="text-blue-700 hover:underline">IISc Bangalore</a>, pursuing my MTech (Research). My research interests include <span class="text-blue-700 font-semibold">Scientific Machine Learning (SciML)</span>, <span class="text-blue-700 font-semibold">Neural Operators for Stochastic Differential Equations</span>, and <span class="text-blue-700 font-semibold">Uncertainty Quantification</span> for solving complex scientific problems.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#research" class="btn btn-primary">Research</a>
+            <a href="#publications" class="btn btn-secondary">Publications</a>
+            <a href="mailto:parikshitm@iisc.ac.in" class="btn btn-download">Contact Me</a>
+        </div>
+    </div>
+</section>
+
+<!-- Add this to your style section -->
+<style>
+    .btn-download {
+        background-color: #ffffff; /* White background */
+        color:#374151; /* Dark text color */
+        border: 1px solid #e5e7eb; /* Light border */
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth tra*
+
+<!-- Add this to your style section -->
+<style>
+    .btn-download {
+        background-color: #ffffff; /* White background */
+        color: #374151; /* Dark text color */
+        border: 1px solid #d1d5db; /* Light border */
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    }
+
+    .btn-download:hover {
+        background-color: #5b93ec; /* Blue background */
+        color: #ffffff; /* White text on hover */
+    }
+</style>
+
+    
+
+    <!-- About Section -->
+     <!-- About Section -->
+<section id="about" class="section accent-bg">
+    <div class="container mx-auto max-w-4xl">
+        <h2 class="text-3xl font-semibold section-title mb-8 text-center">About Me</h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="flex justify-center">
+                <div class="w-[260px] h-[340px] relative">
+                    <img src="public/1662891870367.jpeg" alt="Parikshit Mahajan" class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-lg">
+                </div>
+            </div>
+            <div class="space-y-6">
+                <p class="text-gray-700 leading-relaxed">
+                    Hello! I am <span class="text-blue-700 font-semibold">Parikshit Mahajan</span>, an MTech (Research) student at the <a href="https://www.iisc.ac.in/" target="_blank" class="text-blue-700 hover:underline">Indian Institute of Science (IISc), Bangalore</a> in the Department of Computational and Data Sciences. My academic journey is driven by a passion for scientific machine learning and the intersection of physics and data.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    My research focuses on <span class="text-blue-700 font-semibold">Physics-Informed Neural Networks (PINNs)</span> and <span class="text-blue-700 font-semibold">Stochastic PINNs</span> for solving partial differential equations (PDEs) under uncertainty. I am particularly interested in developing robust and efficient methods for uncertainty quantification in scientific computing.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    I am always eager to collaborate on interdisciplinary research and contribute to the academic community through open-source projects and publications.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-semibold section-title mb-12 text-center">Education</h2>
+            <div class="space-y-8">
+                <div class="timeline-item">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div class="md:w-2/3">
+                            <h3 class="text-xl font-semibold text-gray-900">MTech (Research) in Computational and Data Sciences</h3>
+                            <p class="text-gray-800 mt-1 font-medium"><a href="https://www.iisc.ac.in/" target="_blank" class="text-blue-700 hover:underline">Indian Institute of Science (IISc), Bangalore</a></p>
+                            <p class="text-gray-600 mt-2">Department of Computational and Data Sciences</p>
+                        </div>
+                        <div class="md:w-1/3 md:text-right mt-2 md:mt-0">
+                            <span class="text-sm font-medium text-gray-700 bg-gray-200 px-3 py-1 rounded-full">2024 - Present</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div class="md:w-2/3">
+                            <h3 class="text-xl font-semibold text-gray-900">Bachelor of Technology in Production Engineering</h3>
+                            <p class="text-gray-800 mt-1 font-medium"><a href="https://vjti.ac.in/" target="_blank" class="text-blue-700 hover:underline">Veermata Jijabai Technological Institute (VJTI), Mumbai</a></p>
+                            <p class="text-gray-600 mt-2">Graduated with distinction.</p>
+                        </div>
+                        <div class="md:w-1/3 md:text-right mt-2 md:mt-0">
+                            <span class="text-sm font-medium text-gray-700 bg-gray-200 px-3 py-1 rounded-full">2019 - 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Research Section -->
+    <section id="research" class="section accent-bg">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-semibold section-title mb-12 text-center">Research Interests</h2>
+            <div class="space-y-6 text-lg text-gray-700">
+                <ul class="list-disc pl-8">
+                    <li><span class="font-semibold" style="color:#495057;">Scientific Machine Learning (SciML):</span> Integrating machine learning with scientific computing for modeling and simulation.</li>
+                    <li><span class="font-semibold" style="color:#495057;">Neural Operators for Stochastic Differential Equations:</span> Data-driven operator learning for solving SDEs and high-dimensional stochastic systems.</li>
+                    <li><span class="font-semibold" style="color:#495057;">Uncertainty Quantification:</span> Bayesian methods, Bayesian PINNs, and probabilistic deep learning for quantifying uncertainty in scientific models.</li>
+                    <li><span class="font-semibold" style="color:#495057;">Stochastic PDEs:</span> Data-driven and physics-based approaches for solving PDEs under uncertainty.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="section">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-semibold section-title mb-12 text-center">Publications</h2>
+            <div class="space-y-6 text-lg text-gray-700">
+                <p>Coming soon: List of academic publications and preprints.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section accent-bg">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-semibold section-title mb-12 text-center">Experience</h2>
+            
+            <div class="space-y-8">
+                <div class="timeline-item">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div class="md:w-2/3">
+                            <h3 class="text-xl font-semibold text-gray-900">Project Associate</h3>
+                            <p class="text-blue-600 mt-1 font-medium">
+                                <a href="https://airexlab.cds.iisc.ac.in/" target="_blank" class="text-blue-600 hover:underline">Airex Lab</a>, Indian Institute of Science (IISc)
+                            </p>
+                            <ul class="text-gray-600 mt-3 space-y-1">
+                                <li>• Developing ML models for radar signal processing in collaboration with DRDO.</li>
+                                <li>• Fine-tuning IBM's Granite Large Language Model for solving thermal problems in collaboration with industry partners.</li>
+                                <li>• Developing scalable data pipelines using Celery and Redis for efficient processing.</li>
+                                <li>• Contributing to the SciREX open-source framework for Scientific Machine Learning applications.</li>
+                            </ul>
+                        </div>
+                        <div class="md:w-1/3 md:text-right mt-2 md:mt-0">
+                            <span class="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">June 2024 - Present</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="experience" class="section accent-bg">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-semibold section-title mb-12 text-center">Experience</h2>
+            
+            <div class="space-y-8">
+                <div class="timeline-item">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div class="md:w-2/3">
+                            <h3 class="text-xl font-semibold text-gray-900">Project Associate</h3>
+                            <p class="text-blue-600 mt-1 font-medium">Indian Institute of Science (IISc)</p>
+                            <ul class="text-gray-600 mt-3 space-y-1">
+                                <li>• Developing ML models for radar signal processing in collaboration with DRDO</li>
+                                <li>• Fine-tuning Large Language Models using IBM's Granite Model framework</li>
+                                <li>• Building scalable data-intensive systems with Kafka, Celery, and Redis</li>
+                                <li>• Contributing to SciREX open-source Scientific Machine Learning framework</li>
+                            </ul>
+                        </div>
+                        <div class="md:w-1/3 md:text-right mt-2 md:mt-0">
+                            <span class="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">2024 - Present</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-semibold section-title mb-12 text-center">Technical Skills</h2>
+            <p class="text-center text-gray-600 mb-8">Click on any skill to see where I've used it in my projects</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="skill-category">
+                    <h3 class="text-lg font-semibold">Programming Languages</h3>
+                    <div class="skill-grid">
+                        <span class="tech-tag skill-tag" data-skill="C">C++</span>
+                        <span class="tech-tag skill-tag" data-skill="Python">Python</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="text-lg font-semibold">Machine Learning & AI</h3>
+                    <div class="skill-grid">
+                        <span class="tech-tag skill-tag" data-skill="TensorFlow">TensorFlow</span>
+                        <span class="tech-tag skill-tag" data-skill="scikit-learn">scikit-learn</span>
+                        <span class="tech-tag skill-tag" data-skill="NumPy">NumPy</span>
+                        <span class="tech-tag skill-tag" data-skill="Pandas">Pandas</span>
+                        <span class="tech-tag skill-tag" data-skill="PyTorch">PyTorch</span>
+                        <span class="tech-tag skill-tag" data-skill="TensorRT">TensorRT</span>
+                        <span class="tech-tag skill-tag" data-skill="ONNX">ONNX</span>
+                        <span class="tech-tag skill-tag" data-skill="Hugging Face">Hugging Face</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="text-lg font-semibold">MLOps & Cloud</h3>
+                    <div class="skill-grid">
+                        <span class="tech-tag skill-tag" data-skill="Git">Git</span>
+                        <span class="tech-tag skill-tag" data-skill="GitHub">GitHub</span>
+                        <span class="tech-tag skill-tag" data-skill="GitHub Actions">GitHub Actions</span>
+                        <span class="tech-tag skill-tag" data-skill="Docker">Docker</span>
+                        <span class="tech-tag skill-tag" data-skill="FastAPI">FastAPI</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="text-lg font-semibold">AWS</h3>
+                    <div class="skill-grid">
+                        <span class="tech-tag skill-tag" data-skill="EC2">EC2</span>
+                        <span class="tech-tag skill-tag" data-skill="Route53">Route53</span>
+                        <span class="tech-tag skill-tag" data-skill="S3">S3</span>
+                        <span class="tech-tag skill-tag" data-skill="Lambda">Lambda</span>
+                        <span class="tech-tag skill-tag" data-skill="EKS">EKS</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="text-lg font-semibold">Web Development</h3>
+                    <div class="skill-grid">
+                        <span class="tech-tag skill-tag" data-skill="HTML">HTML</span>
+                        <span class="tech-tag skill-tag" data-skill="CSS">CSS</span>
+                        <span class="tech-tag skill-tag" data-skill="JavaScript">JavaScript</span>
+                        <span class="tech-tag skill-tag" data-skill="React">React</span>
+                        <span class="tech-tag skill-tag" data-skill="Tailwind CSS">Tailwind CSS</span>
+                        <span class="tech-tag skill-tag" data-skill="Node.js">Node.js</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="text-lg font-semibold">GenAI</h3>
+                    <div class="skill-grid">
+                        <span class="tech-tag skill-tag" data-skill="Hugging Face">Hugging Face</span>
+                        <span class="tech-tag skill-tag" data-skill="IBM Docling">IBM Docling</span>
+                        <span class="tech-tag skill-tag" data-skill="Celery-Redis">Celery-Redis</span>
+                        <span class="tech-tag skill-tag" data-skill="MongoDBAtlas">MongoDBAtlas</span>
+                        <span class="tech-tag skill-tag" data-skill="Langchain">Langchain</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="text-lg font-semibold">Docs & Report</h3>
+                    <div class="skill-grid">
+                        <span class="tech-tag skill-tag" data-skill="LaTeX">LaTeX</span>
+                        <span class="tech-tag skill-tag" data-skill="MKdocs">MKdocs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section accent-bg">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-semibold section-title mb-12 text-center">Projects</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">GPU-Accelerated Inference</h3>
+                    <p class="text-gray-600 mb-4">
+                        Optimized YOLOv5 object detection pipeline using ONNX and TensorRT, 
+                        achieving 5.2x speedup on NVIDIA RTX A6000.
+                    </p>
+                    <div class="flex flex-wrap gap-1 mb-4">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">ONNX</span>
+                        <span class="tech-tag">TensorRT</span>
+                        <span class="tech-tag">CUDA</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="btn btn-primary deep-dive-btn" data-project="gpu-inference">
+                            View Details
+                        </button>
+                        <a href="https://github.com/baranidharan27/TensorRT" class="btn btn-secondary" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">SLM-Powered AI Chatbot</h3>
+                    <p class="text-gray-600 mb-4">
+                        Built an AI chatbot using Phi-2 Small Language Model for efficient 
+                        code generation with FastAPI and React.
+                    </p>
+                    <div class="flex flex-wrap gap-1 mb-4">
+                        <span class="tech-tag">Phi-2</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">GenAI</span>
+                        <span class="tech-tag">SLM</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="btn btn-primary deep-dive-btn" data-project="slm-chatbot">
+                            View Details
+                        </button>
+                        <a href="https://github.com/baranidharan27/GenAI" class="btn btn-secondary" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">AffectSense Emotion Recognition</h3>
+                    <p class="text-gray-600 mb-4">
+                        Real-time emotion detection system using OpenCV and FER library 
+                        for video sentiment analysis.
+                    </p>
+                    <div class="flex flex-wrap gap-1 mb-4">
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">FER</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="btn btn-primary deep-dive-btn" data-project="emotion-recognition">
+                            View Details
+                        </button>
+                        <a href="https://github.com/baranidharan27/ML-driven-Video-analysis" class="btn btn-secondary" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Document Prep Kit</h3>
+                    <p class="text-gray-600 mb-4">
+                        Data preparation pipeline for LLM fine-tuning using IBM DocLing 
+                        with structured data extraction.
+                    </p>
+                    <div class="flex flex-wrap gap-1 mb-4">
+                        <span class="tech-tag">IBM DocLing</span>
+                        <span class="tech-tag">LLM Fine-tuning</span>
+                        <span class="tech-tag">Data Pipeline</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="btn btn-primary deep-dive-btn" data-project="document-prep">
+                            View Details
+                        </button>
+                        <a href="https://github.com/baranidharan27/BramhDax" class="btn btn-secondary" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">SciREX Framework</h3>
+                    <p class="text-gray-600 mb-4">
+                        Contributing to open-source Scientific Machine Learning framework 
+                        for research applications and reproducible experiments.
+                    </p>
+                    <div class="flex flex-wrap gap-1 mb-4">
+                        <span class="tech-tag">SciML</span>
+                        <span class="tech-tag">Open Source</span>
+                        <span class="tech-tag">Research</span>
+                        <span class="tech-tag">PyTorch</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="btn btn-primary deep-dive-btn" data-project="scirex">
+                            View Details
+                        </button>
+                        <a href="https://scirex.org" class="btn btn-secondary" target="_blank">Website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl font-semibold section-title mb-8">Contact</h2>
+            <p class="text-lg text-gray-700 mb-12">
+                I am open to academic collaborations, research discussions, and networking opportunities. Feel free to reach out!
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="contact-card">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
+                    <a href="mailto:parikshitm@iisc.ac.in" class="text-blue-700 hover:text-blue-900 font-medium">
+                        parikshitm@iisc.ac.in
+                    </a>
+                </div>
+                <div class="contact-card">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/parikshitmahajan" class="text-blue-700 hover:text-blue-900 font-medium">
+                        linkedin.com/in/parikshitmahajan
+                    </a>
+                </div>
+                <div class="contact-card">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">GitHub</h3>
+                    <a href="https://github.com/Parikshit-26" class="text-blue-700 hover:text-blue-900 font-medium">
+                        github.com/Parikshit-26
+                    </a>
+                </div>
+            </div>
+            <a href="mailto:parikshitm@iisc.ac.in" class="btn btn-primary">
+                Send Message
+            </a>
+        </div>
+    </section>
+
+    <!-- Chat Section -->
+    <section id="chat" class="section accent-bg">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-semibold section-title mb-8 text-center">Ask About My Work</h2>
+            
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="ai-message">
+                        Hello! I'm here to answer questions about Paranidharan's experience, projects, and skills. What would you like to know?
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <input 
+                        type="text" 
+                        id="chat-input" 
+                        placeholder="Ask about projects, skills, or experience..."
+                        class="chat-input"
+                    >
+                    <button id="send-btn" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h2 id="modal-title" class="text-2xl font-semibold text-gray-900">Project Details</h2>
+                <button id="close-modal" class="text-gray-400 hover:text-blue-500 text-2xl">&times;</button>
+            </div>
+            
+            <div id="modal-body" class="text-gray-700 leading-relaxed">
+                <div id="modal-loading" class="text-center py-8">
+                    <div class="loading-dots">
+                        <div class="loading-dot"></div>
+                        <div class="loading-dot"></div>
+                        <div class="loading-dot"></div>
+                    </div>
+                </div>
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Modal -->
+    <div id="skills-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h2 id="skills-modal-title" class="text-2xl font-semibold text-gray-900">Skill Usage</h2>
+                <button id="close-skills-modal" class="text-gray-400 hover:text-blue-500 text-2xl">&times;</button>
+            </div>
+            
+            <div id="skills-modal-body" class="text-gray-700 leading-relaxed">
+                <div id="skills-modal-loading" class="text-center py-8">
+                    <div class="loading-dots">
+                        <div class="loading-dot"></div>
+                        <div class="loading-dot"></div>
+                        <div class="loading-dot"></div>
+                    </div>
+                </div>
+                <div id="skills-modal-content"></div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        // Navigation handling
+        function initNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            function showSection(targetId) {
+                sections.forEach(section => {
+                    section.style.display = section.id === targetId ? 'flex' : 'none';
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                document.querySelectorAll(`a[href="#${targetId}"]`).forEach(link => {
+                    link.classList.add('active');
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    showSection(targetId);
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Show home section by default
+            showSection('home');
+        }
+
+        // Chat functionality
+        function initChat() {
+            const chatMessages = document.getElementById('chat-messages');
+            const chatInput = document.getElementById('chat-input');
+            const sendBtn = document.getElementById('send-btn');
+
+            function addMessage(text, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = isUser ? 'user-message' : 'ai-message';
+                messageDiv.textContent = text;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function showTyping() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'ai-message loading-dots';
+                typingDiv.id = 'typing-indicator';
+                typingDiv.innerHTML = `
+                    <div class="loading-dot"></div>
+                    <div class="loading-dot"></div>
+                    <div class="loading-dot"></div>
+                `;
+                chatMessages.appendChild(typingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function hideTyping() {
+                const typingIndicator = document.getElementById('typing-indicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+
+            async function sendMessage() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+
+                addMessage(message, true);
+                chatInput.value = '';
+
+                showTyping();
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                hideTyping();
+
+                const response = generateResponse(message);
+                addMessage(response);
+            }
+
+        function generateResponse(message) {
+        const msg = message.toLowerCase();
+
+    if (msg.includes('education')) {
+        return "I studied Computer Science at Sathyabama University, specializing in Machine Learning and AI. I graduated in 2024. My education provided me with a strong foundation in computer science principles and the application of advanced algorithms, particularly in the realm of Machine Learning.";
+    } else if (msg.includes('projects')) {
+        return "I've worked on a variety of projects. One of the key projects was AffectSense Emotion Recognition – a real-time emotion detection system that leverages OpenCV and the FER library for facial expression recognition. It provides real-time sentiment analysis and can be used for various interactive applications. Would you like more details on any specific project?";
+    } else if (msg.includes('project') || msg.includes('technologies')) {
+        return " I have worked on several projects, including GPU-Accelerated Inference Optimization, where I converted PyTorch models to ONNX and optimized them with TensorRT for a 5.2x speedup. Another notable project is the SLM-Powered AI Chatbot, which uses the Phi-2 model for efficient code generation. I also contributed to the SciREX framework for Scientific Machine Learning.";   
+    } else if (msg.includes('skills') || msg.includes('technology')) {
+        return "I possess strong expertise in several technologies: Python, TensorFlow, PyTorch, React, Docker, and AWS. I've applied these skills in various projects, including radar signal processing, real-time video sentiment analysis, and full-stack web development. I am also proficient in working with AWS services, Docker containers, and MLOps tools such as Git and DVC.";
+    } else if (msg.includes('contact')) {
+        return "You can contact me at paranidharan270@gmail.com or find me on LinkedIn at linkedin.com/in/paranidharan. I am open to discussing collaboration opportunities, answering any questions you may have, or just connecting over mutual interests in Machine Learning and AI.";
+    } else if (msg.includes('hire') || msg.includes('why should we hire you')) {
+        return "I bring a strong combination of skills, passion, and experience. With expertise in Machine Learning, AI, and MLOps, I have worked on projects like radar signal processing and real-time emotion recognition. I have a track record of delivering scalable and efficient solutions. I'm always eager to learn, collaborate, and push the boundaries of what technology can do.";
+    } else if (msg.includes('why should not we hire you')) {
+        return "While I am constantly working to improve and grow, one potential drawback is that I am relatively new to the industry and still refining my leadership and team management skills. However, I'm committed to continuous learning and would appreciate the opportunity to grow and contribute in a team setting.";
+    } else if (msg.includes('experience')) {
+        return "I currently work as a Project Associate at the Indian Institute of Science (IISc), where I focus on developing ML models for radar signal processing with DRDO and fine-tuning Large Language Models using IBM's Granite Model. I also contribute to SciREX, an open-source Scientific Machine Learning framework.";
+    } else if (msg.includes('leadership')) {
+        return "I have experience in leading small teams on research projects and contributing to collaborative open-source initiatives. My focus is on building effective workflows, leveraging cutting-edge technologies like PyTorch and TensorFlow, and ensuring that teams work together efficiently towards a common goal.";
+    } else if (msg.includes('problem-solving')) {
+        return "I am a strong problem-solver, which I demonstrated when working on GPU-accelerated inference optimization. By converting PyTorch models to ONNX and optimizing them with TensorRT, I was able to achieve a 5.2x speedup. I approach challenges systematically, breaking them down into smaller, manageable tasks.";
+    } else if (msg.includes('future goals')) {
+        return "My future goals involve becoming a leading expert in AI research and Machine Learning engineering. I aspire to contribute to innovative projects that can have a lasting impact in the fields of radar systems, real-time emotion detection, and reproducible scientific research.";
+    } else if (msg.includes('projects details') || msg.includes('explain project')) {
+        return "Sure! Here's a quick overview of one of my key projects: AffectSense Emotion Recognition. It's a real-time emotion detection system built using OpenCV and the FER library. It analyzes facial expressions in video streams to detect emotions and can be used for real-time video sentiment analysis in various applications like customer service, interactive gaming, or online education. Would you like to dive deeper into the tech stack used or the impact of the project?";
+    } else if (msg.includes('real-time applications')) {
+        return "Many of my projects, like AffectSense Emotion Recognition, have practical real-time applications. Emotion recognition can enhance human-computer interaction, improve online learning experiences, and even contribute to mental health monitoring. I've also worked on radar signal processing for defense applications, which can be critical for enhancing national security technologies.";
+    } else if (msg.includes('github') || msg.includes('repo') || msg.includes('code')) {
+        return "Feel free to check out my GitHub repository at github.com/paranidharan. There, you'll find all my open-source contributions, including my work on SciREX, AI-based chatbots, and emotion recognition systems. The code is well-documented, and you can easily get started by cloning any of the projects.";
+    } else if (msg.includes('interested') || msg.includes('passion')) {
+        return "I am passionate about Machine Learning, AI, and their applications in real-time systems. The intersection of data science and engineering excites me, and I strive to solve complex problems with scalable, efficient solutions. I enjoy tackling new challenges, whether it's optimizing a deep learning model or building a full-stack web application.";
+    } else if (msg.includes('soft skills') || msg.includes('communication')) {
+        return "In addition to my technical expertise, I possess strong communication skills. I effectively explain complex technical concepts to non-technical stakeholders, work well in teams, and collaborate cross-functionally with engineers, data scientists, and product managers. I value clarity, empathy, and active listening, which helps me build meaningful relationships in both professional and academic settings.";
+    } else if (msg.includes('challenges faced')) {
+        return "Like every research project, I've faced several challenges, particularly when working on radar signal processing models. Ensuring the model's real-time performance without compromising accuracy was one of the major challenges. However, through optimization with TensorRT and fine-tuning, we overcame that hurdle. I approach challenges by identifying the root cause and breaking it down into manageable tasks.";
+    } else if (msg.includes('teamwork') || msg.includes('collaboration')) {
+        return "I thrive in team environments and strongly believe in collaborative problem-solving. Whether it's working with a team of researchers at IISc or contributing to open-source communities, I believe diverse perspectives lead to innovative solutions. I've worked closely with cross-disciplinary teams and value clear communication and collective goal-setting.";
+    } else if (msg.includes('future technologies') || msg.includes('emerging technologies')) {
+        return "I'm particularly excited about the future of AI research, especially in areas like explainable AI, edge computing, and 5G networks. As AI continues to evolve, I see immense potential in real-time systems, automated decision-making, and AI-based predictive models.";
+    } else if (msg.includes('feedback')) {
+        return "I welcome feedback as it helps me grow. Whether it's about my work or my approach to solving problems, I'm always open to constructive criticism. I believe in continuous learning and constantly refining my skills to become a better engineer and researcher.";
+    } else {
+        return "I can assist you with more detailed information about my projects, skills, experience, or education. What specific aspect would you like to explore?";
+    }
+}
+
+// When displaying messages in your chat, ensure you use innerHTML to allow the HTML content to be rendered
+function addMessageToChat(message, isUserMessage = false) {
+    const chatMessages = document.getElementById('chat-messages');
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add(isUserMessage ? 'user-message' : 'ai-message');
+    messageDiv.innerHTML = message;  // Use innerHTML to render HTML tags like <strong>
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;  // Keep the chat scrolled to the bottom
+}
+
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            sendBtn.addEventListener('click', sendMessage);
+        }
+
+        // Project modal functionality
+        function initProjectModal() {
+            const modal = document.getElementById('project-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            const modalLoading = document.getElementById('modal-loading');
+            const closeModal = document.getElementById('close-modal');
+            const deepDiveButtons = document.querySelectorAll('.deep-dive-btn');
+
+            const projectDetails = {
+                'gpu-inference': {
+                    title: 'GPU-Accelerated Inference',
+                    content: `
+                        <h3 class="text-lg font-semibold mb-3">Project Overview</h3>
+                        <p class="mb-4">This project focused on optimizing deep learning inference performance using NVIDIA's TensorRT framework. By converting PyTorch models to ONNX format and then optimizing them with TensorRT, significant performance improvements were achieved for real-time object detection applications.</p>
+                        
+                        <h3 class="text-lg font-semibold mb-3">Technical Implementation</h3>
+                        <p class="mb-4">The pipeline involved model conversion (PyTorch → ONNX → TensorRT), precision optimization (FP32 to FP16), and custom CUDA kernel integration for preprocessing. The 5.2x speedup was measured on an NVIDIA RTX A6000 GPU.</p>
+                        
+                        <h3 class="text-lg font-semibold mb-3">Key Achievements</h3>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>5.2x performance improvement over standard inference</li>
+                            <li>Optimized memory usage and reduced latency</li>
+                            <li>Maintained model accuracy while improving speed</li>
+                            <li>Production-ready deployment pipeline</li>
+                        </ul>
+                    `
+                },
+                'slm-chatbot': {
+                    title: 'SLM-Powered AI Chatbot',
+                    content: `
+                        <h3 class="text-lg font-semibold mb-3">Project Overview</h3>
+                        <p class="mb-4">Developed a lightweight AI chatbot using Microsoft's Phi-2 Small Language Model, designed for efficient code generation and technical Q&A. The system featured a model-agnostic architecture allowing easy swapping between different LLMs.</p>
+                        
+                        <h3 class="text-lg font-semibold mb-3">Technical Stack</h3>
+                        <p class="mb-4">Built with FastAPI for high-performance backend services, React for responsive frontend, and implemented efficient tokenization and context management for optimal SLM performance on limited hardware resources.</p>
+                        
+                        <h3 class="text-lg font-semibold mb-3">Features</h3>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>Real-time code generation and assistance</li>
+                            <li>Context-aware conversations</li>
+                            <li>Model-agnostic architecture</li>
+                            <li>Efficient resource utilization</li>
+                        </ul>
+                    `
+                },
+                'emotion-recognition': {
+                    title: 'AffectSense Emotion Recognition',
+                    content: `
+                        <h3 class="text-lg font-semibold mb-3">Project Overview</h3>
+                        <p class="mb-4">Real-time emotion detection system capable of analyzing facial expressions in video streams. The system combined computer vision techniques with deep learning for accurate emotion classification across multiple facial expressions.</p>
+                        
+                        <h3 class="text-lg font-semibold mb-3">Technical Implementation</h3>
+                        <p class="mb-4">Implemented using OpenCV for real-time video processing, integrated with the FER (Facial Expression Recognition) library, and optimized for low-latency processing suitable for interactive applications.</p>
+                        
+                        <h3 class="text-lg font-semibold mb-3">Applications</h3>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>Real-time video sentiment analysis</li>
+                            <li>Interactive emotion feedback systems</li>
+                            <li>Human-computer interaction enhancement</li>
+                            <li>Accessibility applications</li>
+                        </ul>
+                    `
+                },
+                'document-prep': {
+                    title: 'Document Prep Kit',
+                    content: `
+                        <h3 class="text-lg font-semibold mb-3">Project Overview</h3>
+                        <p class="mb-4">Developed a comprehensive data preparation pipeline for fine-tuning Large Language Models on scientific documents. The system uses IBM DocLing for structured data extraction and implements proximity-based caption analysis.</p>
+                        
+                        <h3 class="text-lg font-semibold mb-3">Key Features</h3>
+                        <p class="mb-4">The pipeline includes document parsing, text extraction, metadata preservation, and structured data formatting optimized for LLM training workflows.</p>
+                        
+                        <h3 class="text-lg font-semibold mb-3">Technical Benefits</h3>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>Automated document processing</li>
+                            <li>Structured data extraction</li>
+                            <li>LLM-ready format generation</li>
+                            <li>Scalable processing pipeline</li>
+                        </ul>
+                    `
+                },
+                'scirex': {
+                    title: 'SciREX Framework',
+                    content: `
+                        <h3 class="text-lg font-semibold mb-3">Project Overview</h3>
+                        <p class="mb-4">Contributing to the open-source Scientific Machine Learning framework designed for research applications and reproducible experiments. The framework provides tools for scientific computing and ML research.</p>
+                        
+                        <h3 class="text-lg font-semibold mb-3">Contributions</h3>
+                        <p class="mb-4">Developed modules for data processing, model evaluation, and experiment tracking specifically tailored for scientific research workflows.</p>
+                        
+                        <h3 class="text-lg font-semibold mb-3">Impact</h3>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>Open-source community contribution</li>
+                            <li>Reproducible research tools</li>
+                            <li>Scientific computing optimization</li>
+                            <li>Research workflow automation</li>
+                        </ul>
+                    `
+                }
+            };
+
+            deepDiveButtons.forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const projectId = e.target.getAttribute('data-project');
+                    const project = projectDetails[projectId];
+                    
+                    if (!project) return;
+                    
+                    modal.classList.remove('hidden');
+                    modalTitle.textContent = project.title;
+                    modalLoading.style.display = 'block';
+                    modalContent.innerHTML = '';
+                    
+                    // Simulate loading
+                    await new Promise(resolve => setTimeout(resolve, 800));
+                    
+                    modalLoading.style.display = 'none';
+                    modalContent.innerHTML = project.content;
+                });
+            });
+
+            closeModal.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        }
+
+        // Skills modal functionality
+        function initSkillsModal() {
+            const modal = document.getElementById('skills-modal');
+            const modalTitle = document.getElementById('skills-modal-title');
+            const modalContent = document.getElementById('skills-modal-content');
+            const modalLoading = document.getElementById('skills-modal-loading');
+            const closeModal = document.getElementById('close-skills-modal');
+            const skillTags = document.querySelectorAll('.skill-tag');
+
+            const skillUsage = {
+                'Python': {
+                    projects: [
+                        {
+                            title: 'GPU-Accelerated Inference',
+                            description: 'Core programming language for model conversion and optimization pipeline',
+                            usage: 'Used for PyTorch model loading, ONNX conversion scripts, and TensorRT optimization workflows'
+                        },
+                        {
+                            title: 'AffectSense Emotion Recognition',
+                            description: 'Primary development language for the emotion detection system',
+                            usage: 'Implemented OpenCV video processing, FER library integration, and real-time emotion classification'
+                        },
+                        {
+                            title: 'Document Prep Kit',
+                            description: 'Used for data pipeline development and document processing',
+                            usage: 'Built IBM DocLing integration, text extraction algorithms, and data formatting scripts'
+                        },
+                        {
+                            title: 'SciREX Framework',
+                            description: 'Contributing to scientific computing modules',
+                            usage: 'Developed data processing utilities, model evaluation tools, and experiment tracking features'
+                        }
+                    ]
+                },
+                'PyTorch': {
+                    projects: [
+                        {
+                            title: 'GPU-Accelerated Inference',
+                            description: 'Source framework for model optimization',
+                            usage: 'Used for model loading, architecture analysis, and initial inference baseline measurements'
+                        },
+                        {
+                            title: 'SciREX Framework',
+                            description: 'Primary deep learning framework for scientific ML applications',
+                            usage: 'Implemented model training utilities, gradient computation, and neural network architectures'
+                        }
+                    ]
+                },
+                'TensorRT': {
+                    projects: [
+                        {
+                            title: 'GPU-Accelerated Inference',
+                            description: 'Key optimization technology for 5.2x performance improvement',
+                            usage: 'Converted ONNX models to TensorRT engines, implemented precision optimizations (FP16), and custom layer optimizations'
+                        }
+                    ]
+                },
+                'ONNX': {
+                    projects: [
+                        {
+                            title: 'GPU-Accelerated Inference',
+                            description: 'Intermediate format for model conversion pipeline',
+                            usage: 'Converted PyTorch models to ONNX format for TensorRT compatibility and cross-platform deployment'
+                        }
+                    ]
+                },
+                'FastAPI': {
+                    projects: [
+                        {
+                            title: 'SLM-Powered AI Chatbot',
+                            description: 'High-performance backend framework',
+                            usage: 'Built REST API endpoints, implemented async request handling, and integrated with Phi-2 model for real-time responses'
+                        }
+                    ]
+                },
+                'React': {
+                    projects: [
+                        {
+                            title: 'SLM-Powered AI Chatbot',
+                            description: 'Frontend framework for responsive user interface',
+                            usage: 'Created interactive chat interface, real-time message updates, and responsive design components'
+                        }
+                    ]
+                },
+                'OpenCV': {
+                    projects: [
+                        {
+                            title: 'AffectSense Emotion Recognition',
+                            description: 'Computer vision library for real-time video processing',
+                            usage: 'Implemented video stream capture, face detection algorithms, and frame preprocessing for emotion analysis'
+                        }
+                    ]
+                },
+                'IBM Docling': {
+                    projects: [
+                        {
+                            title: 'Document Prep Kit',
+                            description: 'Document parsing and extraction technology',
+                            usage: 'Integrated for structured data extraction from scientific documents and automated text processing'
+                        }
+                    ]
+                },
+                'Celery-Redis': {
+                    projects: [
+                        {
+                            title: 'Experience at IISc',
+                            description: 'Task queue system for scalable data processing',
+                            usage: 'Implemented distributed task processing for large-scale data pipelines and asynchronous job management'
+                        }
+                    ]
+                },
+                'Docker': {
+                    projects: [
+                        {
+                            title: 'Multiple Projects',
+                            description: 'Containerization for consistent deployment environments',
+                            usage: 'Created Docker images for ML model serving, microservices deployment, and development environment standardization'
+                        }
+                    ]
+                },
+                'Git': {
+                    projects: [
+                        {
+                            title: 'All Projects',
+                            description: 'Version control for collaborative development',
+                            usage: 'Managed code repositories, handled merge conflicts, and maintained project history across all development work'
+                        }
+                    ]
+                },
+                'GitHub': {
+                    projects: [
+                        {
+                            title: 'SciREX Framework',
+                            description: 'Open-source collaboration platform',
+                            usage: 'Contributing to open-source projects, managing pull requests, and collaborative development workflows'
+                        }
+                    ]
+                },
+                'TensorFlow': {
+                    projects: [
+                        {
+                            title: 'Machine Learning Research',
+                            description: 'Alternative deep learning framework for specific use cases',
+                            usage: 'Used for certain research applications requiring TensorFlow-specific optimizations and model architectures'
+                        }
+                    ]
+                },
+                'HTML': {
+                    projects: [
+                        {
+                            title: 'Portfolio Website',
+                            description: 'Structure and content markup',
+                            usage: 'Created semantic HTML structure for responsive portfolio website with accessibility features'
+                        }
+                    ]
+                },
+                'CSS': {
+                    projects: [
+                        {
+                            title: 'Portfolio Website',
+                            description: 'Styling and responsive design',
+                            usage: 'Implemented custom CSS animations, responsive layouts, and modern design patterns'
+                        }
+                    ]
+                },
+                'JavaScript': {
+                    projects: [
+                        {
+                            title: 'Portfolio Website',
+                            description: 'Interactive functionality and dynamic content',
+                            usage: 'Added interactive features, modal dialogs, chat functionality, and smooth navigation'
+                        }
+                    ]
+                },
+                'Tailwind CSS': {
+                    projects: [
+                        {
+                            title: 'Portfolio Website',
+                            description: 'Utility-first CSS framework',
+                            usage: 'Rapid UI development with consistent design system and responsive utilities'
+                        }
+                    ]
+                },
+                'AWS': {
+                    projects: [
+                        {
+                            title: 'Multiple Projects',
+                            description: 'Cloud infrastructure and deployment',
+                            usage: 'Used various AWS services for scalable application deployment and data storage'
+                        }
+                    ]
+                },
+                'EC2': {
+                    projects: [
+                        {
+                            title: 'GPU-Accelerated Inference',
+                            description: 'GPU-enabled compute instances',
+                            usage: 'Deployed optimization workloads on GPU instances for model conversion and performance testing'
+                        }
+                    ]
+                },
+                'S3': {
+                    projects: [
+                        {
+                            title: 'Multiple Projects',
+                            description: 'Object storage for models and datasets',
+                            usage: 'Stored large ML models, training datasets, and processed outputs with versioning'
+                        }
+                    ]
+                },
+                'Lambda': {
+                    projects: [
+                        {
+                            title: 'Serverless Applications',
+                            description: 'Event-driven compute functions',
+                            usage: 'Implemented serverless functions for API endpoints and automated data processing tasks'
+                        }
+                    ]
+                },
+                'Hugging Face': {
+                    projects: [
+                        {
+                            title: 'SLM-Powered AI Chatbot',
+                            description: 'Model hub and transformers library',
+                            usage: 'Integrated Phi-2 model, implemented tokenization, and used transformers for efficient inference'
+                        }
+                    ]
+                },
+                'LangChain': {
+                    projects: [
+                        {
+                            title: 'Advanced AI Applications',
+                            description: 'Framework for building LLM applications',
+                            usage: 'Created chains for document processing, implemented RAG patterns, and built conversational AI systems'
+                        }
+                    ]
+                },
+                'LaTeX': {
+                    projects: [
+                        {
+                            title: 'Research Documentation',
+                            description: 'Academic paper and report formatting',
+                            usage: 'Authored research papers, technical reports, and academic documentation with professional formatting'
+                        }
+                    ]
+                },
+                'MKdocs': {
+                    projects: [
+                        {
+                            title: 'SciREX Framework',
+                            description: 'Documentation generation for open-source projects',
+                            usage: 'Created comprehensive documentation, API references, and user guides for the framework'
+                        }
+                    ]
+                }
+            };
+
+            skillTags.forEach(tag => {
+                tag.addEventListener('click', async (e) => {
+                    const skillName = e.target.getAttribute('data-skill');
+                    const skill = skillUsage[skillName];
+                    
+                    if (!skill) {
+                        // For skills not in the detailed list, show a generic message
+                        const genericSkill = {
+                            projects: [
+                                {
+                                    title: 'Various Projects',
+                                    description: 'Applied in multiple contexts throughout my work',
+                                    usage: `${skillName} has been used across different projects and research work, contributing to various aspects of development and implementation.`
+                                }
+                            ]
+                        };
+                        showSkillModal(skillName, genericSkill);
+                        return;
+                    }
+                    
+                    showSkillModal(skillName, skill);
+                });
+            });
+
+            async function showSkillModal(skillName, skill) {
+                modal.classList.remove('hidden');
+                modalTitle.textContent = `${skillName} - Project Usage`;
+                modalLoading.style.display = 'block';
+                modalContent.innerHTML = '';
+                
+                // Simulate loading
+                await new Promise(resolve => setTimeout(resolve, 600));
+                
+                modalLoading.style.display = 'none';
+                
+                let content = `
+                    <div class="mb-4">
+                        <p class="text-gray-600 mb-6">Here's how I've used <strong>${skillName}</strong> across my projects:</p>
+                    </div>
+                `;
+                
+                skill.projects.forEach(project => {
+                    content += `
+                        <div class="project-item">
+                            <h4>${project.title}</h4>
+                            <p>${project.description}</p>
+                            <div class="usage-context">${project.usage}</div>
+                        </div>
+                    `;
+                });
+                
+                modalContent.innerHTML = content;
+            }
+
+            closeModal.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            initNavigation();
+            initChat();
+            initProjectModal();
+            initSkillsModal();
+        });
+    </script>
+</body>
+</html>
